@@ -140,6 +140,7 @@
         style   : _mate.estilo,
         stretch : _mate.estiramento
     )
+    set heading(numbering : "1.")
     show heading: eso => condensada([*#eso*])
     doc
 }
