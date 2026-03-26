@@ -209,13 +209,7 @@
         strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
     }
-    set math.equation(
-        numbering: eso => {
-            let HEA = counter(heading.where(level:1)).at(here()).last()
-            let SEC = counter(heading.where(level:2)).at(here()).last()
-            [(#HEA.#SEC.#eso)]
-        }
-    )
+    set math.equation(numbering: "(1)")
     doc
 }
 
