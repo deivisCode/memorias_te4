@@ -15,5 +15,5 @@ OPCIONS := \
 	--ignore-embedded-fonts    \
 	--font-path=memoria/.fontes
 
-memoria/memoria.pdf: memoria/memoria.typ memoria/estilo_memoria.typ
+memoria/memoria.pdf: memoria/memoria.typ memoria/estilo_memoria.typ $(wildcard memoria/seccions/*.typ)
 	typst compile $(OPCIONS) memoria/memoria.typ

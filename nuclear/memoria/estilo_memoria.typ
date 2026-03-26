@@ -243,7 +243,6 @@
     indice_contidos    : true,
     bibliografia       : true,
     contraportada      : true,
-    anexos             : none,
     documento          : none
 ) = {
 
@@ -291,8 +290,6 @@
     // Fin do documento, apéndices, índice alfabético, biblio, etc.
     {
         show: estilo_backmatter
-
-        anexos
 
         // Mostramos a bibliografía
         if bibliografia {
