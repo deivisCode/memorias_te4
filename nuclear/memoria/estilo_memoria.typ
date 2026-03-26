@@ -1,20 +1,4 @@
-// Tipos de letra
-// Ollo, para seleccionar unha fonte hai que especificar
-// [Familia, Nome, Peso, Estiramento]
-// Por exemplo:
-// text(font: "Roboto", weight:400, stretch: 75% ) -> Roboto Condensed
-// text(font: "Roboto", weight:400, stretch: 100%) -> Roboto Normal
-//
-// NORMAL      Cochineal  https://ctan.org/pkg/cochineal
-// MATES       NewCM      https://github.com/alerque/libertinus
-// SANS        Roboto     https://fonts.google.com/specimen/Roboto
-// CONDENSADA  Roboto     https://fonts.google.com/specimen/Roboto
-// SLAB        RobotoSlab https://fonts.google.com/specimen/Roboto+Slab
-// MONO        FiraCodeNF https://github.com/ryanoasis/nerd-fonts/releases/
-// SIMBOLOS    SymbolsNF  https://github.com/ryanoasis/nerd-fonts/releases/
-//
-// Esto son dicionarios que se poden acceder noutras partes do código pa ter a
-// info das fontes
+// Esto son dicionarios que se poden acceder noutras partes do código pa ter a info das fontes
 #let _norm = ( familia: "Cochineal"              , peso: 400 , estilo: "normal" , estiramento: 100% )
 #let _mate = ( familia: "Libertinus Math"        , peso: 400 , estilo: "normal" , estiramento: 100% )
 #let _sans = ( familia: "Roboto"                 , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -24,69 +8,13 @@
 #let _simb = ( familia: "Symbols Nerd Font Mono" , peso: 400 , estilo: "normal" , estiramento: 100% )
 
 // Varias funcións para activar as distintas fontes directamente
-
-/* NORMAL */
-#let normal = eso => text(
-    fallback : false,
-    font     : _norm.familia,
-    weight   : _norm.peso,
-    style    : _norm.estilo,
-    stretch  : _norm.estiramento
-)[#eso]
-
-/* MATES */
-#let mates = eso => text(
-    fallback : false,
-    font     : _mate.familia,
-    weight   : _mate.peso,
-    style    : _mate.estilo,
-    stretch  : _mate.estiramento
-)[#eso]
-
-/* SANS */
-#let sans = eso => text(
-    fallback : false,
-    font     : _sans.familia,
-    weight   : _sans.peso,
-    style    : _sans.estilo,
-    stretch  : _sans.estiramento
-)[#eso]
-
-/* CONDENSADA */
-#let condensada = eso => text(
-    fallback : false,
-    font     : _cond.familia,
-    weight   : _cond.peso,
-    style    : _cond.estilo,
-    stretch  : _cond.estiramento
-)[#eso]
-
-/* SLAB */
-#let slab = eso => text(
-    fallback : false,
-    font     : _slab.familia,
-    weight   : _slab.peso,
-    style    : _slab.estilo,
-    stretch  : _slab.estiramento
-)[#eso]
-
-/* MONO */
-#let mono = eso => text(
-    fallback : false,
-    font     : _mono.familia,
-    weight   : _mono.peso,
-    style    : _mono.estilo,
-    stretch  : _mono.estiramento
-)[#eso]
-
-/* SIMB */
-#let simbolos = eso => text(
-    fallback : false,
-    font     : _simb.familia,
-    weight   : _simb.peso,
-    style    : _simb.estilo,
-    stretch  : _simb.estiramento
-)[#eso]
+#let normal     = eso => text( fallback: false, font: _norm.familia, weight: _norm.peso, style: _norm.estilo, stretch: _norm.estiramento,)[#eso]
+#let mates      = eso => text( fallback: false, font: _mate.familia, weight: _mate.peso, style: _mate.estilo, stretch: _mate.estiramento,)[#eso]
+#let sans       = eso => text( fallback: false, font: _sans.familia, weight: _sans.peso, style: _sans.estilo, stretch: _sans.estiramento,)[#eso]
+#let condensada = eso => text( fallback: false, font: _cond.familia, weight: _cond.peso, style: _cond.estilo, stretch: _cond.estiramento,)[#eso]
+#let slab       = eso => text( fallback: false, font: _slab.familia, weight: _slab.peso, style: _slab.estilo, stretch: _slab.estiramento,)[#eso]
+#let mono       = eso => text( fallback: false, font: _mono.familia, weight: _mono.peso, style: _mono.estilo, stretch: _mono.estiramento,)[#eso]
+#let simbolos   = eso => text( fallback: false, font: _simb.familia, weight: _simb.peso, style: _simb.estilo, stretch: _simb.estiramento,)[#eso]
 
 /// Funcion para crear a portada
 #let crear_portada(grupo,correo,github) = {
@@ -96,10 +24,7 @@
         rows    : (1fr,1fr,1fr),
         align   : horizon,
 
-        grid.cell(
-            x:0,y:0,
-            (slab(title()))
-        ),
+        grid.cell( x:0,y:0, (slab(title())) ),
 
         grid.cell(
             x:0,y:1,
