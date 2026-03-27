@@ -67,7 +67,11 @@
 
 /// Funcion para crear a Bibliografía
 #let crear_bibliografia() = {
-    v(1fr)
+    bibliography(
+        "/bibliografia.bib",
+        title : condensada[Bibliografía],
+        style : "/ebd.csl"
+    )
 }
 
 
@@ -288,7 +292,6 @@
 
         // Mostramos a bibliografía
         if bibliografia {
-            pagebreak()
             crear_bibliografia()
         }
 

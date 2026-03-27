@@ -29,5 +29,5 @@
     grupo         : "7",
     documento     : seccions,
     contraportada : false,
-    bibliografia  : false,
+    bibliografia  : true,
 )
