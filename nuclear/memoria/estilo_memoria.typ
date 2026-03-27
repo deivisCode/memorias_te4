@@ -90,7 +90,7 @@
     )
     set page(
         paper   : "a4",
-        binding : left,
+        // binding : left,
     )
     set text(
         size      : 12pt,
@@ -204,7 +204,7 @@
     // As ecuacions no texto deben ser 'box' para que non se rompan
     show math.equation.where(block: false): eso => { box(eso) }
     show quote: set text(style:"italic")
-    show figure.caption: set text(font: _sans.familia)
+    show figure.caption: set text(font: _sans.familia, size: 0.7em)
     show figure.caption: eso => {
         strong[#eso.supplement~#eso.counter.display() #eso.separator]
         eso.body
