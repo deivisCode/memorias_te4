@@ -26,7 +26,7 @@
     autoria       : ((nome:"David Cotelo Varela"),),
     correo        : "david.cotelo@rai.usc.es",
     github        : "deivisCode/memorias_te4",
-    grupo         : "7",
+    grupo         : "6",
     documento     : seccions,
     contraportada : false,
     bibliografia  : true,
