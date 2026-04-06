@@ -1,5 +1,5 @@
 SHELL := bash
-.PHONY: limpa
+.PHONY: limpa figuras
 .DEFAULT_GOAL := memoria/memoria.pdf
 
 limpa:
@@ -14,6 +14,9 @@ OPCIONS := \
 	--ignore-system-fonts      \
 	--ignore-embedded-fonts    \
 	--font-path=memoria/.fontes
+
+figuras:
+	uv run 0_grafica_exemplo.py
 
 memoria/memoria.pdf: memoria/memoria.typ memoria/estilo_memoria.typ $(wildcard memoria/seccions/*.typ)
 	typst compile $(OPCIONS) memoria/memoria.typ
