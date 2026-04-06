@@ -183,6 +183,7 @@
 #let estilo_mainmatter(doc) = {
     set page(
         numbering      : "1",
+        columns        : 2,
         // header         : crear_encabezado(),
         // footer         : crear_pe(),
         header         : line(length:100%, stroke: 0.6pt + luma(90%)),
