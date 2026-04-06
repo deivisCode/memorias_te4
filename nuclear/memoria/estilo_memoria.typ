@@ -185,14 +185,14 @@
         numbering      : "1",
         // header         : crear_encabezado(),
         // footer         : crear_pe(),
-        header         : line(length:100%, stroke: 0.6pt),
+        header         : line(length:100%, stroke: 0.6pt + luma(90%)),
         footer         : context {
             grid(
                 columns:3,rows:1,
                 align: (left + horizon, center + horizon, right + horizon),
-                line(length:90%, stroke: 0.6pt),
+                line(length:90%, stroke: 0.6pt + luma(90%)),
                 str(counter(page).get().first()),
-                line(length:90%, stroke: 0.6pt),
+                line(length:90%, stroke: 0.6pt + luma(90%)),
             )
         },
         header-ascent  : 10%,
