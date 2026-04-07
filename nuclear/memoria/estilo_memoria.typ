@@ -61,7 +61,7 @@
     )
     outline(
         title : none,
-        depth : 4
+        depth : 2
     )
 }
 
