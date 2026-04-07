@@ -146,6 +146,9 @@
     )
     set heading(numbering : "1.")
     show heading: eso => condensada([*#eso*])
+    show link: set text(blue)
+    show link: underline
+
     doc
 }
 

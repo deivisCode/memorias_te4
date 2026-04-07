@@ -57,6 +57,13 @@
             </if>
           </choose>
         </group>
+        <group>
+          <choose>
+            <if type="webpage" match="any">
+              <text variable="URL" prefix="URL: "/>
+            </if>
+          </choose>
+        </group>
       </group>
     </layout>
   </bibliography>
