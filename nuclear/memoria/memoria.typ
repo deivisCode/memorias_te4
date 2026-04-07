@@ -17,10 +17,9 @@
 
 #let anexos = {
     include("/seccions/4_00_ANEXOS_datos-mostras.typ")
-    include("/seccions/4_01_ANEXOS_actividades.typ")
-    include("/seccions/4_02_ANEXOS_datos-detector-cristal.typ")
-    include("/seccions/4_03_ANEXOS_tratamento-datos.typ")
-    include("/seccions/4_04_ANEXOS_graficas-extra.typ")
+    include("/seccions/4_01_ANEXOS_datos-detector-cristal.typ")
+    include("/seccions/4_02_ANEXOS_tratamento-datos.typ")
+    include("/seccions/4_03_ANEXOS_graficas-extra.typ")
 }
 
 

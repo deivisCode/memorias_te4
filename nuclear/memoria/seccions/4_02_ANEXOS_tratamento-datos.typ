@@ -1,4 +1,4 @@
-== Tratamento de datos
+== Tratamento de datos <sec:tratamento>
 
 É preciso facer varios comentarios sobre as incertezas dos datos. Temos por
 separado as propias variables de medición, as variables derivadas e os axustes.
