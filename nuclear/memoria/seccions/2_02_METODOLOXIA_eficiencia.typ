@@ -66,7 +66,7 @@ A eficiencia total $epsilon$ pode ser calculada directamente a partir da fórmul
 
 $
     A(t) = A_0 exp(- t ln(2)/(T_(1\/2))),
-$
+$ <ec:actividade>
 
 sendo $t$ o tempo dende a última medición da actividade da mostra (polo xeral,
 varios anos), $A_0$ a actividade naquel momento, e $T_(1\/2)$ o tempo de vida
