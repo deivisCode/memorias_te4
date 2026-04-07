@@ -219,7 +219,12 @@
 }
 
 #let estilo_backmatter(doc) = {
-    v(1em)
+    show figure.caption: set text(font: _sans.familia, size: 0.7em)
+    show figure.caption: eso => {
+        strong[#eso.supplement~#eso.counter.display() #eso.separator]
+        eso.body
+    }
+    set math.equation(numbering: "(1)")
     doc
 }
 
