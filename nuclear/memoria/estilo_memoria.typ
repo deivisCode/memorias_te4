@@ -243,7 +243,8 @@
     indice_contidos    : true,
     bibliografia       : true,
     contraportada      : true,
-    documento          : none
+    documento          : none,
+    anexos             : none,
 ) = {
 
     // ESTILO XERAL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -292,6 +293,8 @@
         show: estilo_backmatter
 
         // Mostramos a bibliografía
+        anexos
+
         if bibliografia {
             crear_bibliografia()
         }

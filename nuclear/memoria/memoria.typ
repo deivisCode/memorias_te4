@@ -13,6 +13,9 @@
     include("/seccions/3_03_RESULTADOS_eficiencias.typ")
     include("/seccions/3_04_RESULTADOS_compton.typ")
     include("/seccions/3_05_RESULTADOS_seccion-eficaz.typ")
+}
+
+#let anexos = {
     include("/seccions/4_00_ANEXOS_datos-mostras.typ")
     include("/seccions/4_01_ANEXOS_actividades.typ")
     include("/seccions/4_02_ANEXOS_datos-detector-cristal.typ")
@@ -28,6 +31,7 @@
     github        : "deivisCode/memorias_te4",
     grupo         : "6",
     documento     : seccions,
+    anexos        : anexos,
     contraportada : false,
     bibliografia  : true,
 )
