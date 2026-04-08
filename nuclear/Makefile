@@ -17,6 +17,8 @@ OPCIONS := \
 
 figuras:
 	uv run 0_grafica_exemplo.py
+	uv run 1_grafica_ruido_bo.py
+	uv run 2_grafica_ruido_malo.py
 
-memoria/memoria.pdf: memoria/memoria.typ memoria/estilo_memoria.typ $(wildcard memoria/seccions/*.typ)
+memoria/memoria.pdf: memoria/memoria.typ memoria/estilo_memoria.typ $(wildcard memoria/seccions/*.typ) $(wildcard memoria/figuras/*)
 	typst compile $(OPCIONS) memoria/memoria.typ

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scienceplots
 
-with open("datos/calibracion/mostra_cs137.mca", "r") as f:
+with open("datos/background.mca", "r") as f:
     contidos = f.read()
     contidos = contidos.split("<<DATA>>")[1] # Todo despois de <<DATA>>
     contidos = contidos.split("<<END>>")[0] # Todo antes de <<END>>
@@ -19,4 +19,4 @@ with plt.style.context(["ieee","science"]):
     ax.set_ylabel("Contas")
     ax.set(xlim=(0,8500), ylim=(0,855))
 
-    fig.savefig("memoria/figuras/mostra_cs137_exemplo.pdf")
+    fig.savefig("memoria/figuras/ruido_bo.pdf")
