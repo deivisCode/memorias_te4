@@ -63,7 +63,7 @@ debería usar a fórmula @ec:propagacion, pero os datos das mostrar non teñen
 incertezas. Unha posible solución é supor unha $sigma_"actividade" = 1$ Bq.
 
 *Número de contas reducido:* Non é máis que o número de contas nun certo tempo,
-que chamarei $n$. Na ecuación @ec:propagacion usamos $n=f(t, N)$ obtendo
+que chamarei $n$. Na ecuación @ec:propagacion usamos $n=N\/t=f(t, N)$ obtendo
 
 $
     sigma_n = sqrt(
