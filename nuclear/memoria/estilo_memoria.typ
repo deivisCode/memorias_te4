@@ -304,6 +304,7 @@
         anexos
 
         if bibliografia {
+            pagebreak()
             crear_bibliografia()
         }
 
