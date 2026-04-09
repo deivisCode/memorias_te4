@@ -99,9 +99,7 @@ $
 $ <ec:ruido_lineal>
 
 a altas enerxías. Por motivos técnicos @couto é posible buscar un punto
-intermedio cunha aproximación cuadrática $"Ruido"(x) = a + b x + c x^2$ en
+intermedio cunha aproximación cuadrática $"Fondo"(x) = a + b x + c x^2$ en
 _todo punto_, pero ten a desvantaxe de que nos extremos de enerxías moi altas
 ou moi baixas pode non ser posible atopar numéricamente os parámetros
-optimizados $a,b,c$.
-
-// :AQUI: PICOS
+optimizados $a,b,c$ do fondo ou os do pico gausiano $a, mu, sigma$.
