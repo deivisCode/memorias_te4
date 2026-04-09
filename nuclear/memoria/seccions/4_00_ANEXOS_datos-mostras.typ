@@ -10,7 +10,8 @@
         Información das diferentes mostras usadas nesta práctica de
         laboratorio. As actividades actuais calculáronse ca fórmula
         @ec:actividade e súas incertezas están xustificada na sección
-        @sec:tratamento
+        @sec:tratamento. A información orixinal das mostras sacouse da gráfica
+        que o profesorado nos mostrou no laboratorio (pegada na parede).
     ],
     table(
         columns       : (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
@@ -31,6 +32,7 @@
         [Na 22]  , [09047-52]              , [20/1/20] , [74000]     , [14626(1)]     , [$9.5 dot 10^2$ días]  ,
         [Co 60]  , [KA743]                 , [1/9/01]  , [399000]    , [16107(1)]     , [$1.93 dot 10^3$ días] ,
         [Eu 153] , [MCR2007-07]            , [1/2/07]  , [38973]     , [14644(1)]     , [$1.35 dot 10^1$ anos] ,
+        [Bi 207] , [FG-B]                  , [11/4/83] , [82510]     , [32108(1)]     , [$3.15 dot 10^1$ anos] ,
         table.hline()
 
     )
