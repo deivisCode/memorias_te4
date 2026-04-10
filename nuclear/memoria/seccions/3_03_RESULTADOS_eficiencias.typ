@@ -8,3 +8,6 @@ obtivemos no presente fronte ás que, usando @ec:actividade. Explicado en
 @ec:eficiencia_xeometrica a eficiencia xeométrica ten unha compoñente espacial.
 Podemos axustar dita ecuación fronte supoñendo descoñecido $R_D$ para ver a
 superficie efectiva do detector.
+
+- *FALTA*: Calcular $epsilon_i$ coas actividades
+- *FALTA*: Calcular $epsilon_x$ coas distancias (necesario engadir integrais de axustes en mca-tools)
