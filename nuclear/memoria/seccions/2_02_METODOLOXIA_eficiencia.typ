@@ -1,6 +1,7 @@
 == Eficiencia
 
-Queremos coñecer a eficiencia do detector, intrínseca a súa contrucción e funcionamento.
+Queremos coñecer a eficiencia do detector, intrínseca a súa contrucción e
+funcionamento.
 
 Temos en conta que so unha parte da radiación alcanza o detector e so unha
 fracción desta é contada. O cociente
@@ -53,7 +54,7 @@ $
     (2 pi d^2 (1 - cos(theta))) /
     (4 pi d^2)
     \
-    =& 1/2 (1-d^2/(sqrt(d^2 + R_D^2)))
+    =& 1/2 (1/(sqrt(1 + (R_D\/d)^2)))
 $ <ec:eficiencia_xeometrica>
 
 Para poder calcular $epsilon_x$ é posible medir as contas arredor de certo

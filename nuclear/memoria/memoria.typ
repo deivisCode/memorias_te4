@@ -6,13 +6,14 @@
     include("/seccions/2_00_METODOLOXIA_conceptos.typ")
     include("/seccions/2_01_METODOLOXIA_calibracion.typ")
     include("/seccions/2_02_METODOLOXIA_eficiencia.typ")
-    include("/seccions/2_03_METODOLOXIA_proceso-experimental.typ")
+    include("/seccions/2_03_METODOLOXIA_compton.typ")
+    include("/seccions/2_04_METODOLOXIA_proceso-experimental.typ")
     include("/seccions/3_00_RESULTADOS_conceptos.typ")
     include("/seccions/3_01_RESULTADOS_calibracion.typ")
     include("/seccions/3_02_RESULTADOS_resolucion.typ")
     include("/seccions/3_03_RESULTADOS_eficiencias.typ")
     include("/seccions/3_04_RESULTADOS_compton.typ")
-    include("/seccions/3_05_RESULTADOS_seccion-eficaz.typ")
+    // include("/seccions/3_05_RESULTADOS_seccion-eficaz.typ")
 }
 
 #let anexos = {

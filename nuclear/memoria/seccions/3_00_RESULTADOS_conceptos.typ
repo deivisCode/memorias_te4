@@ -86,7 +86,8 @@ exemplo do fondo _correcto_ na figura @fig:fondo_bo.
 
 Este fondo de radiación ten máis relevancia a enerxías menores onde presenta un
 comportamento exponencial; a enerxías altas o fondo é menor e pode aproximarse
-en principio por un modelo polinomial. É dicir, a función da ecuación @ec:pico_xenerico pode expandirse como
+en principio por un modelo polinomial. É dicir, a función da ecuación
+@ec:pico_xenerico pode expandirse como
 
 $
     f(x) = a dot exp([(x-mu)/sigma]^2) + b dot exp(-b x)
