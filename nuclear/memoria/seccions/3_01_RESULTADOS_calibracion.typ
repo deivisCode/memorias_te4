@@ -4,7 +4,7 @@
 Móstranse os axustes a diversos picos das mostras que usamos para a calibración.
 
 #let fig_cal = {
-    sys.inputs.at("figuras_fits_calibracion")
+    sys.inputs.at("figuras_fit_calibracion")
         .split(" ")
         .map(x => x.trim("memoria"))
 }
