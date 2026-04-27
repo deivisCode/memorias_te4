@@ -1,12 +1,12 @@
 #import("/estilo_memoria.typ"): *
 
-
 #let seccions = {
+    include("/seccions/1_00_INTRODUCCION_introduccion.typ")
+    include("/seccions/2_00_METODOLOXIA_introducion.typ")
+    include("/seccions/3_00_RESULTADOS_introducion.typ")
 }
 
-#let anexos = {
-}
-
+#let anexos = { }
 
 #crear_memoria(
     titulo        : [Fotoconductividade\ Memoria de Laboratorio],
