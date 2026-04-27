@@ -16,7 +16,7 @@ OPCIONS := \
 	--font-path=memoria/.fontes
 
 figuras:
-	uv run 0_grafica_exemplo.py
+	uv run 0_analise.py
 
 memoria/memoria.pdf: memoria/memoria.typ memoria/estilo_memoria.typ $(wildcard memoria/seccions/*.typ) $(wildcard memoria/figuras/*)
 	typst compile $(OPCIONS) \

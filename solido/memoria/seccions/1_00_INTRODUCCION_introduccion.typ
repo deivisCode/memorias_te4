@@ -1,3 +1,4 @@
+#import("/estilo_memoria.typ"): *
 = Introducción
 
 // Unhas ecuacións para despois
@@ -20,3 +21,5 @@ $ <ec:independente>
 + $b$ debería ser o mesmo varias series, dentro do mesmo modelo. Comparar.
 + $m$ debería ser o mesmo varias series, dentro do mesmo modelo. Comparar.
 + O mellor modelo é o que mantén $b, m$ constantes entre series.
+
+#valor("G_0")
