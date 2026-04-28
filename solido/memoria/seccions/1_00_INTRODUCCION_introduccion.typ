@@ -8,10 +8,10 @@ Todo o traballo está versionado en
 )
 cos datos, análises, e cambios de calquera parte do proxecto ao longo do tempo.
 
-Nesta práctica traballaremos o efecto da _fotocontuctividade_. Un material
+Nesta práctica traballaremos o efecto da _fotoconductividade_. Un material
 semicondutor está caracterizado pola existencia dun espazo#footnote[En inglés,
 _gap_.] entre a banda de valencia (#smallcaps[BV]) e a de condución
-#smallcaps[BC], suficientemente pequena como para que distintos efectos
+(#smallcaps[BC]), suficientemente pequena como para que distintos efectos
 (térmicos, ambientais, etc.) despracen un electrón de valencia á capa
 condutora.
 

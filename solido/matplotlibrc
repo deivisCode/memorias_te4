@@ -2,7 +2,7 @@ axes.grid: True
 errorbar.capsize: 2
 figure.constrained_layout.use: True
 figure.dpi: 150
-figure.figsize: 9, 5
+figure.figsize: 6, 5
 mathtext.fontset: cm
 font.family : serif
 # font.serif : New Computer Modern
@@ -11,7 +11,7 @@ grid.alpha: 0.9
 grid.linestyle: dashed
 grid.linewidth: 0.5
 legend.fancybox: False
-legend.framealpha: 1.0
+legend.framealpha: 0.9
 lines.marker: d
 lines.markersize: 9
 lines.linestyle: 
