@@ -43,6 +43,8 @@
                 set align(bottom)
                 text(size:1.3em,simbolos[])
                 h(1em)
+                show link: set text(blue)
+                show link: underline
                 link("https://github.com/" + github, github)
                 h(1fr)
                 mono(datetime.today().display())
@@ -148,8 +150,6 @@
     )
     set heading(numbering : "1.")
     show heading: eso => condensada([*#eso*])
-    show link: set text(blue)
-    show link: underline
 
     doc
 }
@@ -220,6 +220,16 @@
         eso.body
     }
     set math.equation(numbering: "(1)")
+    show ref: eso => {
+        if eso.element != none and eso.element.func() == math.equation {
+            let NUM = counter(math.equation).at(eso.element.location()).first()
+            // show link: set text(red)
+            [(*#link(eso.element.location(), [#NUM])*)]
+        } else if eso.element != none and eso.element.func() == figure {
+            let NUM = counter(figure).at(eso.element.location()).last()
+            link( eso.element.location(), [*#NUM*])
+        } else { eso }
+    }
     doc
 }
 
