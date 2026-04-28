@@ -7,7 +7,17 @@ def lineal(x,a,b):
     return a + b*x
 
 def equivalente(theta, a, b, m):
-    return np.sqrt( (a + b * np.cos(theta))**m )
+    coseno = np.cos(theta)**2
+    bcoseno = b * coseno
+    a_bcoseno = a + bcoseno
+    print(f"theta: {theta}")
+    print(f"a: {a}")
+    print(f"b: {b}")
+    print(f"m: {m}")
+    print(f"coseno: {coseno}")
+    print(f"b * coseno: {bcoseno}")
+    print(f"a + b * coseno: {a_bcoseno}")
+    return np.sqrt(a_bcoseno**m)
 
 ##############################################################################
 # CONDUCTIVIDADE INTRÍNSECA ##################################################
@@ -31,7 +41,6 @@ a_G_intrinseca, b_G_intrinseca = axuste_G_intrinseca[0]
 s_a_G_intrinseca, s_b_G_intrinseca = np.sqrt(np.diag(axuste_G_intrinseca[1]))
 G_intrinseca = 1 / b_G_intrinseca
 gd.garda_dato("G_0", f"{G_intrinseca:.2e}", 0, "V/A", "/memoria/datos.csv")
-
 
 figura_1 = plt.figure()
 lenzo_1 = figura_1.add_subplot(1,1,1)
@@ -60,9 +69,11 @@ datos_fluxo_ambiental_total = np.loadtxt(
     delimiter = ','
 )
 
-I_fluxo_ambiental_total = datos_fluxo_ambiental_total[0] * 10 ** (-6)
-A_fluxo_ambiental_total = datos_fluxo_ambiental_total[1] * np.pi / 180
-V_fluxo_ambiental_total = datos_fluxo_ambiental_total[2]
+parte = slice(1, len(datos_fluxo_ambiental_total[0])-2)
+
+I_fluxo_ambiental_total = datos_fluxo_ambiental_total[0][parte] * 10 ** (-6)
+A_fluxo_ambiental_total = datos_fluxo_ambiental_total[1][parte] * np.pi / 180
+V_fluxo_ambiental_total = datos_fluxo_ambiental_total[2][parte]
 
 G_fluxo_ambiental_total = I_fluxo_ambiental_total / V_fluxo_ambiental_total
 
@@ -70,6 +81,6 @@ axuste_fluxo_ambiental_total = sco.curve_fit(
     equivalente,
     A_fluxo_ambiental_total,
     G_fluxo_ambiental_total,
-    sigma = [0.000001] * len(A_fluxo_ambiental_total),
-    p0 = (-0.000003,-0.00005,1),
+    # sigma = [0.000001] * len(A_fluxo_ambiental_total),
+    p0 = (0.000003,G_intrinseca,1), # a, b , m
 )
