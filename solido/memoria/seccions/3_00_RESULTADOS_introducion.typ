@@ -13,6 +13,7 @@ Obtemos os seguintes datos,
 
 #{
     set align(center)
+    set text(size:0.9em)
     table(
         columns: 2,
         stroke: none,
@@ -23,3 +24,25 @@ Obtemos os seguintes datos,
         table.hline(),
     )
 }
+
+Agora podemos realizar os axustes ás ecuacións @ec:equivalente @ec:independente.
+
+#{
+    set align(center)
+    set text(size:0.9em)
+    table(
+        columns: 4,
+        stroke: none,
+        table.hline(),
+        table.header([Modelo], [a], [b], [m]),
+        table.hline(stroke: 0.6pt),
+        [Equivalente], valor("a_fluxo_total_eq"), valor("b_fluxo_total_eq"), valor("m_fluxo_total_eq"),
+        [Independente], valor("a_fluxo_total_in"), valor("b_fluxo_total_in"), valor("m_fluxo_total_in"),
+        table.hline(),
+    )
+}
+
+#figure(
+    image("/figuras/axuste_fluxo_total.pdf"),
+    caption : [Axuste no caso de fluxo total.]
+) <fig:axuste-total>
