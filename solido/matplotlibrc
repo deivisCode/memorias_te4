@@ -12,10 +12,11 @@ grid.linestyle: dashed
 grid.linewidth: 0.5
 legend.fancybox: False
 legend.framealpha: 0.9
-lines.marker: d
-lines.markersize: 9
+lines.marker: D
+lines.markersize: 6
 lines.linestyle: 
 lines.markerfacecolor: white
+lines.markeredgewidth: 2.0
 xtick.direction: in
 xtick.minor.visible: True
 xtick.top: True
