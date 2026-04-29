@@ -1,4 +1,4 @@
-#import "@preview/unify:0.7.1": qty,numrange,qtyrange
+#import "@preview/unify:0.7.1": num,qty,numrange,qtyrange
 
 // Esto son dicionarios que se poden acceder noutras partes do código pa ter a info das fontes
 #let _norm = ( familia: "Cochineal"              , peso: 400 , estilo: "normal" , estiramento: 100% )
@@ -339,5 +339,5 @@
 #let valor(nome) = {
     let numero = resultados.filter(x => x.at(0) == nome).at(0).at(1)
     let unidades = resultados.filter(x => x.at(0) == nome).at(0).at(3)
-    qty(numero, unidades)
+    if unidades == "" { num(numero) } else { qty(numero, unidades) }
 }

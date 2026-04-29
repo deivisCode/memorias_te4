@@ -10,12 +10,12 @@ def equivalente(theta, a, b, m):
     coseno = np.cos(theta)**2
     bcoseno = b * coseno
     a_bcoseno = a + bcoseno
-    return np.sqrt(abs(a_bcoseno)**m)
+    return np.sqrt(np.abs(a_bcoseno)**m)
 
 def independente(theta, a, b, m):
     coseno = np.cos(theta)**2
     bcoseno = b * coseno
-    return np.sqrt(abs(a)**m) + np.sqrt(abs(bcoseno)**m)
+    return np.sqrt(np.abs(a)**m) + np.sqrt(np.abs(bcoseno)**m)
 
 ##############################################################################
 # CONDUCTIVIDADE INTRÍNSECA ##################################################
@@ -38,18 +38,17 @@ axuste_G_intrinseca = sco.curve_fit(
 a_G_intrinseca, b_G_intrinseca = axuste_G_intrinseca[0]
 s_a_G_intrinseca, s_b_G_intrinseca = np.sqrt(np.diag(axuste_G_intrinseca[1]))
 G_intrinseca = b_G_intrinseca
-gd.garda_dato("G_0"         , f"{G_intrinseca:.3g}"   , 0 , "V/A"     , "/memoria/datos.csv")
-gd.garda_dato("ordeada_G_0" , f"{a_G_intrinseca:.3g}" , 0 , "uA" , "/memoria/datos.csv")
-
-figura_1 = plt.figure()
-lenzo_1 = figura_1.add_subplot(1,1,1)
+gd.garda_dato("G_0", f"{G_intrinseca:.2e}", 0, "V/A", "/memoria/datos.csv")
+gd.garda_dato("ordeada_G_0", f"{a_G_intrinseca:.2e}", 0, "uA", "/memoria/datos.csv")
 
 x = np.linspace(min(V_intrinseca), max(V_intrinseca), 10)
 y = a_G_intrinseca + b_G_intrinseca * x
+
+figura_1 = plt.figure()
+lenzo_1 = figura_1.add_subplot(1,1,1)
 lenzo_1.plot(x, y, linestyle="-.", marker="", color="gray", label="Axuste")
 lenzo_1.plot(V_intrinseca, I_intrinseca, color = 'black', label = "Datos")
 lenzo_1.set(xlabel="Voltaxe [V]", ylabel=r"Intensidade [$\mu$A]")
-
 figura_1.legend()
 figura_1.savefig("memoria/figuras/axuste_G_intrinseca.pdf")
 
@@ -57,10 +56,12 @@ figura_1.savefig("memoria/figuras/axuste_G_intrinseca.pdf")
 # FLUXO AMBIENTAL TOTAL ######################################################
 ##############################################################################
 
+print("Fluxo Ambiental Total")
+
 datos_fluxo_ambiental_total = np.loadtxt("datos/fluxo_ambiental_total.dat", delimiter = ',')
 
 parte = slice(0, len(datos_fluxo_ambiental_total[0]))
-I_fluxo_ambiental_total = datos_fluxo_ambiental_total[0][parte] * 10 ** (-6)
+I_fluxo_ambiental_total = datos_fluxo_ambiental_total[0][parte] * 10 ** (-3)
 A_fluxo_ambiental_total = datos_fluxo_ambiental_total[1][parte] * np.pi / 180
 V_fluxo_ambiental_total = datos_fluxo_ambiental_total[2][parte]
 
@@ -90,23 +91,23 @@ a1_optimizado_in = axuste_fluxo_ambiental_total_in[0][0]
 b1_optimizado_in = axuste_fluxo_ambiental_total_in[0][1]
 m1_optimizado_in = axuste_fluxo_ambiental_total_in[0][2]
 
-gd.garda_dato("a_fluxo_total_eq", f"{a1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("b_fluxo_total_eq", f"{b1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("a_fluxo_total_eq", f"{a1_optimizado_eq:.2e}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("b_fluxo_total_eq", f"{b1_optimizado_eq:.2e}", 0, "", "/memoria/datos.csv")
 gd.garda_dato("m_fluxo_total_eq", f"{m1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("a_fluxo_total_in", f"{a1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("b_fluxo_total_in", f"{b1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("a_fluxo_total_in", f"{a1_optimizado_in:.2e}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("b_fluxo_total_in", f"{b1_optimizado_in:.2e}", 0, "", "/memoria/datos.csv")
 gd.garda_dato("m_fluxo_total_in", f"{m1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
+
+x = np.linspace(A_fluxo_ambiental_total[0], A_fluxo_ambiental_total[-1], 1000)
+y_eq = equivalente(x, a1_optimizado_eq, b1_optimizado_eq, m1_optimizado_eq)
+y_in = independente(x, a1_optimizado_in, b1_optimizado_in, m1_optimizado_in)
 
 figura_2 = plt.figure()
 lenzo_2 = figura_2.add_subplot(1,1,1)
-lenzo_2.set(xlabel=r"$\theta$ [rad]", ylabel="$G$ [V / A]")
-
-x = np.linspace(A_fluxo_ambiental_total[0], A_fluxo_ambiental_total[-1], 100)
-y_eq = equivalente(x, a1_optimizado_eq, b1_optimizado_eq, m1_optimizado_eq)
-y_in = independente(x, a1_optimizado_in, b1_optimizado_in, m1_optimizado_in)
 lenzo_2.plot(x, y_eq, linestyle="dashed", marker="", color="red" , label="Equivalente")
 lenzo_2.plot(x, y_in, linestyle="dashdot", marker="", color="blue", label="Independente")
 lenzo_2.plot(A_fluxo_ambiental_total, G_fluxo_ambiental_total, color="black", label = "Datos")
+lenzo_2.set(xlabel=r"$\theta$ [rad]", ylabel="$G$ [V / A]")
 figura_2.legend()
 figura_2.savefig("memoria/figuras/axuste_fluxo_total.pdf")
 
@@ -115,10 +116,12 @@ figura_2.savefig("memoria/figuras/axuste_fluxo_total.pdf")
 # FLUXO AMBIENTAL PARCIAL ####################################################
 ##############################################################################
 
+print("Fluxo Ambiental Parcial")
+
 datos_fluxo_ambiental_parcial = np.loadtxt("datos/fluxo_ambiental_parcial.dat", delimiter = ',')
 
 parte = slice(0, len(datos_fluxo_ambiental_parcial[0]))
-I_fluxo_ambiental_parcial = datos_fluxo_ambiental_parcial[0][parte] * 10 ** (-6)
+I_fluxo_ambiental_parcial = datos_fluxo_ambiental_parcial[0][parte] * 10 ** (-3)
 A_fluxo_ambiental_parcial = datos_fluxo_ambiental_parcial[1][parte] * np.pi / 180
 V_fluxo_ambiental_parcial = datos_fluxo_ambiental_parcial[2][parte]
 
@@ -148,34 +151,36 @@ a1_optimizado_in = axuste_fluxo_ambiental_parcial_in[0][0]
 b1_optimizado_in = axuste_fluxo_ambiental_parcial_in[0][1]
 m1_optimizado_in = axuste_fluxo_ambiental_parcial_in[0][2]
 
-gd.garda_dato("a_fluxo_parcial_eq", f"{a1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("b_fluxo_parcial_eq", f"{b1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("a_fluxo_parcial_eq", f"{a1_optimizado_eq:.2e}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("b_fluxo_parcial_eq", f"{b1_optimizado_eq:.2e}", 0, "", "/memoria/datos.csv")
 gd.garda_dato("m_fluxo_parcial_eq", f"{m1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("a_fluxo_parcial_in", f"{a1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("b_fluxo_parcial_in", f"{b1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("a_fluxo_parcial_in", f"{a1_optimizado_in:.2e}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("b_fluxo_parcial_in", f"{b1_optimizado_in:.2e}", 0, "", "/memoria/datos.csv")
 gd.garda_dato("m_fluxo_parcial_in", f"{m1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
 
-figura_2 = plt.figure()
-lenzo_2 = figura_2.add_subplot(1,1,1)
-lenzo_2.set(xlabel=r"$\theta$ [rad]", ylabel="$G$ [V / A]")
+figura_3 = plt.figure()
+lenzo_3 = figura_3.add_subplot(1,1,1)
+lenzo_3.set(xlabel=r"$\theta$ [rad]", ylabel="$G$ [V / A]")
 
-x = np.linspace(A_fluxo_ambiental_parcial[0], A_fluxo_ambiental_parcial[-1], 100)
+x = np.linspace(A_fluxo_ambiental_parcial[0], A_fluxo_ambiental_parcial[-1], 1000)
 y_eq = equivalente(x, a1_optimizado_eq, b1_optimizado_eq, m1_optimizado_eq)
 y_in = independente(x, a1_optimizado_in, b1_optimizado_in, m1_optimizado_in)
-lenzo_2.plot(x, y_eq, linestyle="dashed", marker="", color="red" , label="Equivalente")
-lenzo_2.plot(x, y_in, linestyle="dashdot", marker="", color="blue", label="Independente")
-lenzo_2.plot(A_fluxo_ambiental_parcial, G_fluxo_ambiental_parcial, color="black", label = "Datos")
-figura_2.legend()
-figura_2.savefig("memoria/figuras/axuste_fluxo_parcial.pdf")
+lenzo_3.plot(x, y_eq, linestyle="dashed", marker="", color="red" , label="Equivalente")
+lenzo_3.plot(x, y_in, linestyle="dashdot", marker="", color="blue", label="Independente")
+lenzo_3.plot(A_fluxo_ambiental_parcial, G_fluxo_ambiental_parcial, color="black", label = "Datos")
+figura_3.legend()
+figura_3.savefig("memoria/figuras/axuste_fluxo_parcial.pdf")
 
 ##############################################################################
 # FLUXO AMBIENTAL NULO #######################################################
 ##############################################################################
 
+print("Fluxo Ambiental Nulo")
+
 datos_fluxo_ambiental_nulo = np.loadtxt("datos/fluxo_ambiental_nulo.dat", delimiter = ',')
 
-parte = slice(0, len(datos_fluxo_ambiental_nulo[0]))
-I_fluxo_ambiental_nulo = datos_fluxo_ambiental_nulo[0][parte] * 10 ** (-6)
+parte = slice(1, len(datos_fluxo_ambiental_nulo[0]))
+I_fluxo_ambiental_nulo = datos_fluxo_ambiental_nulo[0][parte] * 10 ** (-3)
 A_fluxo_ambiental_nulo = datos_fluxo_ambiental_nulo[1][parte] * np.pi / 180
 V_fluxo_ambiental_nulo = datos_fluxo_ambiental_nulo[2][parte]
 
@@ -205,22 +210,22 @@ a1_optimizado_in = axuste_fluxo_ambiental_nulo_in[0][0]
 b1_optimizado_in = axuste_fluxo_ambiental_nulo_in[0][1]
 m1_optimizado_in = axuste_fluxo_ambiental_nulo_in[0][2]
 
-gd.garda_dato("a_fluxo_nulo_eq", f"{a1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("b_fluxo_nulo_eq", f"{b1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("a_fluxo_nulo_eq", f"{a1_optimizado_eq:.2e}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("b_fluxo_nulo_eq", f"{b1_optimizado_eq:.2e}", 0, "", "/memoria/datos.csv")
 gd.garda_dato("m_fluxo_nulo_eq", f"{m1_optimizado_eq:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("a_fluxo_nulo_in", f"{a1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
-gd.garda_dato("b_fluxo_nulo_in", f"{b1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("a_fluxo_nulo_in", f"{a1_optimizado_in:.2e}", 0, "", "/memoria/datos.csv")
+gd.garda_dato("b_fluxo_nulo_in", f"{b1_optimizado_in:.2e}", 0, "", "/memoria/datos.csv")
 gd.garda_dato("m_fluxo_nulo_in", f"{m1_optimizado_in:.3g}", 0, "", "/memoria/datos.csv")
 
-figura_2 = plt.figure()
-lenzo_2 = figura_2.add_subplot(1,1,1)
-lenzo_2.set(xlabel=r"$\theta$ [rad]", ylabel="$G$ [V / A]")
+figura_4 = plt.figure()
+lenzo_4 = figura_4.add_subplot(1,1,1)
+lenzo_4.set(xlabel=r"$\theta$ [rad]", ylabel="$G$ [V / A]")
 
-x = np.linspace(A_fluxo_ambiental_nulo[0], A_fluxo_ambiental_nulo[-1], 100)
+x = np.linspace(A_fluxo_ambiental_nulo[0], A_fluxo_ambiental_nulo[-1], 1000)
 y_eq = equivalente(x, a1_optimizado_eq, b1_optimizado_eq, m1_optimizado_eq)
 y_in = independente(x, a1_optimizado_in, b1_optimizado_in, m1_optimizado_in)
-lenzo_2.plot(x, y_eq, linestyle="dashed", marker="", color="red" , label="Equivalente")
-lenzo_2.plot(x, y_in, linestyle="dashdot", marker="", color="blue", label="Independente")
-lenzo_2.plot(A_fluxo_ambiental_nulo, G_fluxo_ambiental_nulo, color="black", label = "Datos")
-figura_2.legend()
-figura_2.savefig("memoria/figuras/axuste_fluxo_nulo.pdf")
+lenzo_4.plot(x, y_eq, linestyle="dashed", marker="", color="red" , label="Equivalente")
+lenzo_4.plot(x, y_in, linestyle="dashdot", marker="", color="blue", label="Independente")
+lenzo_4.plot(A_fluxo_ambiental_nulo, G_fluxo_ambiental_nulo, color="black", label = "Datos")
+figura_4.legend()
+figura_4.savefig("memoria/figuras/axuste_fluxo_nulo.pdf")

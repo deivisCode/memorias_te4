@@ -1,4 +1,5 @@
 axes.grid: True
+axes.formatter.limits: -2, 2
 errorbar.capsize: 2
 figure.constrained_layout.use: True
 figure.dpi: 150
