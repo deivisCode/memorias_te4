@@ -10,7 +10,7 @@ fotorresistencia de CdS (véxase a figura @fig:montaxe)
 ) <fig:montaxe>
 
 Tamén contamos cunha fonte de alimentación e os aparellos de medida usuais
-(multímetros de precisión), véxase a figura @fig:multimetros
+(multímetros de precisión), véxase a figura @fig:multimetros.
 
 #figure(
     image("/imaxes/elec.jpeg"),

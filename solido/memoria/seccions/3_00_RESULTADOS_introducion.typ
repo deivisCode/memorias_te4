@@ -9,7 +9,7 @@ axustes da figura @fig:g_0
     caption: [Axuste á ecuación @ec:axuste_g_0]
 ) <fig:g_0>
 
-Obtemos os seguintes datos
+Obtemos os seguintes datos,
 
 #{
     set align(center)
@@ -17,7 +17,7 @@ Obtemos os seguintes datos
         columns: 2,
         stroke: none,
         table.hline(),
-        table.header([Pendente ($G_0$)], [Ordeada]),
+        table.header([Pendente ($G_0$)], [Ordenada na orixe]),
         table.hline(stroke: 0.6pt),
         valor("G_0"), valor("ordeada_G_0"),
         table.hline(),

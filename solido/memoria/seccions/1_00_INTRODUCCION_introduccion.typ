@@ -1,5 +1,5 @@
 #import("/estilo_memoria.typ"): *
-= Introducción
+= Introdución
 
 Todo o traballo está versionado en
 #link(
@@ -8,15 +8,17 @@ Todo o traballo está versionado en
 )
 cos datos, análises, e cambios de calquera parte do proxecto ao longo do tempo.
 
-Nesta práctica traballaremos o efecto da _fotoconductividade_. Un material
+Nesta práctica traballaremos o efecto da _fotocondutividade_. Un material
 semicondutor está caracterizado pola existencia dun espazo#footnote[En inglés,
 _gap_.] entre a banda de valencia (#smallcaps[BV]) e a de condución
 (#smallcaps[BC]), suficientemente pequena como para que distintos efectos
 (térmicos, ambientais, etc.) despracen un electrón de valencia á capa
-condutora.
+condutora. No noso caso traballaremos considerando os efectos da radiación
+luminosa ambiental máis a radiación dunha lámpada, ignorando outros efectos.
 
 Seguindo literalmente o guión da práctica @guion sabemos que o exceso de carga
-pode obterse mediante dous modelos:
+(inducido polo efecto do fluxo luminoso ambiental e da lámpada) pode obterse
+mediante dous modelos:
 
 + Supoñendo que o fluxo radiante total $phi.alt_t$ é directamente a suma dos
   fluxos ambientais e da lámpada $phi.alt_a + phi.alt_l$. Este modelo chámase
@@ -49,10 +51,9 @@ Esta memoria, entón, consiste nos seguintes puntos:
 
 + Obter $a,b,m$ para o modelo _equivalente_ e o modelo _independente_. Faremos
   isto mediante axustes ás ecuacións @ec:equivalente e @ec:independente usando
-  o paquete
-  `curve_fit`~#footnote[https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html#curve-fit]
+  o paquete `curve_fit`~#footnote[https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html#curve-fit]
   de Python, mediante un modelo de mínimos cadrados usual, seguindo as notas de
   @tratamento.
 
 + $b, m$ debería ser o mesmo para un certo modelo, polo que podemos ver que
-  modelo fixa ambos parámetros mellor.
+  modelo fixa ambos parámetros mellor e así concluír cal dos dous é mellor.
