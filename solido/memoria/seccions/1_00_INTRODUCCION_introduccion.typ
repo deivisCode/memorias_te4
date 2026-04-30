@@ -21,26 +21,41 @@ Seguindo literalmente o guión da práctica @guion sabemos que o exceso de carga
 mediante dous modelos:
 
 + Supoñendo que o fluxo radiante total $phi.alt_t$ é directamente a suma dos
-  fluxos ambientais e da lámpada $phi.alt_a + phi.alt_l$. Este modelo chámase
-  _equivalente_. Obtense, seguindo o guión,
+  fluxos ambientais e da lámpada $phi.alt_a + phi.alt_l$. É dicir, o fluxo
+  total é o mesmo que se tivésemos unha soa fonte luminosa cun fluxo igual á
+  combinación dos dous fluxos independentes. Este modelo chámase _equivalente_.
+  Obtense, seguindo o guión,
 
   $
-      G - G_0 = Delta G = sqrt((a + b cos(theta)^2)^m), \
+      G - G_0 = Delta G = sqrt((a + b cos(theta)^2)^m),
+  $ <ec:equivalente>
+
+  sendo
+
+  $
       a := phi.alt_a ((alpha^2 beta)/gamma)^(1\/m),
       space
       b := phi.alt_0 ((alpha^2 beta)/gamma)^(1\/m).
-  $ <ec:equivalente>
+  $
 
 
 + Supoñendo que podemos calcular a xeración en exceso do fluxo ambiental e da
-  lámpada de modo independente e logo sumalas. Modelo _independente_. Obtense
+  lámpada de modo independente e logo sumalas. É dicir, temos dúas taxas de
+  xeración diferentes da lámpada e do ambiente, e logo sumámolas. Chámase
+  modelo _independente_. Obtense
 
   $
-      G - G_0 = Delta G = sqrt(a^m)  + sqrt((b cos(theta)^2)^m) \
-      a := phi.alt_a ((alpha^2 beta_a)/gamma_a)^(1\/m),
-      space
-      b := phi.alt_b ((alpha^2 beta_b)/gamma_b)^(1\/m).
+      Delta G &= Delta G_a  + Delta G_l \
+              &= sqrt(a^m)  + sqrt((b cos(theta)^2)^m),
   $ <ec:independente>
+
+  onde
+
+  $
+      a :&= phi.alt_a ((alpha^2 beta_a)/gamma_a)^(1\/m),
+      space
+      b :&= phi.alt_b ((alpha^2 beta_b)/gamma_b)^(1\/m).
+  $
 
 As ecuacións @ec:equivalente e @ec:independente non son iguais, polo que temos
 dous modelos que poden describir, a priori, ben ou mal, o experimento que
@@ -55,5 +70,6 @@ Esta memoria, entón, consiste nos seguintes puntos:
   de Python, mediante un modelo de mínimos cadrados usual, seguindo as notas de
   @tratamento.
 
-+ $b, m$ debería ser o mesmo para un certo modelo, polo que podemos ver que
-  modelo fixa ambos parámetros mellor e así concluír cal dos dous é mellor.
++ $b, m$ debería ser o mesmo para un certo modelo xa que so dependen da
+  iluminación recibida, polo que podemos ver que modelo fixa ambos parámetros
+  mellor e así concluír que modelo representa mellor o suceso experimental.

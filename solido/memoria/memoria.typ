@@ -8,7 +8,9 @@
     include("/seccions/3_00_RESULTADOS_introducion.typ")
 }
 
-#let anexos = { }
+#let anexos = {
+    include("/seccions/4_00_ANEXOS_datos.typ")
+}
 
 #crear_memoria(
     titulo        : [Fotoconductividade\ Memoria de Laboratorio],
