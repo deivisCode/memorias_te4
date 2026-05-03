@@ -313,7 +313,7 @@
         show: estilo_backmatter
 
         // Mostramos a bibliografía
-        anexos
+        columns(2,anexos)
 
         if bibliografia {
             pagebreak()

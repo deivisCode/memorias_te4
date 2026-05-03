@@ -26,9 +26,10 @@ Obtemos os seguintes datos,
     )
 }
 
-== Fluxo total
+Agora podemos realizar os axustes ás ecuacións @ec:equivalente e
+@ec:independente.
 
-Agora podemos realizar os axustes ás ecuacións @ec:equivalente @ec:independente.
+== Fluxo total
 
 #{
     set align(center)
@@ -91,7 +92,7 @@ Agora podemos realizar os axustes ás ecuacións @ec:equivalente @ec:independent
     caption : [Axuste no caso de fluxo nulo.]
 ) <fig:axuste-nulo>
 
-== Comparativa
+== Comparativa e conclusións
 
 #figure(
     caption: [
@@ -124,3 +125,11 @@ Agora podemos realizar os axustes ás ecuacións @ec:equivalente @ec:independent
         )
     }
 )
+
+Seguindo a táboa anterior vemos uns valores de $m$ rondando a unidade (que
+sería de esperar) máis preto deste no caso do modelo equivalente. O valor de
+$b$ tamén varía menos neste modelo, mentras que no independente sofre un
+cambio de signo.
+
+Concluímos que o modelo _equivalente_ se achega mellor ao comportamento medido no
+laboratorio.
