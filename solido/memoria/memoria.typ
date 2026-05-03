@@ -13,7 +13,7 @@
 }
 
 #crear_memoria(
-    titulo        : [Fotoconductividade\ Memoria de Laboratorio],
+    titulo        : [Fotocondutividade\ Memoria de Laboratorio],
     autoria       : ((nome:"David Cotelo Varela"),),
     correo        : "david.cotelo@rai.usc.es",
     github        : "deivisCode/memorias_te4",
